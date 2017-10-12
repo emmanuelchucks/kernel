@@ -1,2 +1,1 @@
-// For hashing user passwords with salt
-// Still in progress
+// TODO: Create password hashing utility

@@ -1,24 +1,27 @@
-module.exports = (input) => {
-  return {
-    asName: () => {
-      input = input.toLowerCase();
-      input = input.replace(/[^a-z-\s]/g, "");
-      input = input.replace(/\s+/g, " ");
-      input = input.replace(/\b[a-z]/g, (letter) => letter.toUpperCase());
-      input = input.replace(/(-\w)/g, (letter) => letter.toUpperCase());
+module.exports = function capitalize(input) {
+    return {
+        asName() {
+            const output = input
+                .trim()
+                .toLowerCase()
+                .replace(/[^a-z-\s]/g, "")
+                .replace(/\s+/g, " ")
+                .replace(/\b[a-z]/g, letter => letter.toUpperCase())
+                .replace(/(-\w)/g, letter => letter.toUpperCase());
 
-      return input;
-    },
+            return output;
+        },
 
-    asHeading: () => {
-      let filterWord = /\s(A|An|As|At|For|In|Is|Not|Of|On|So|The|With)\s/gi;
+        asHeading() {
+            const filterWord = /\s(A|An|As|At|For|In|Is|Not|Of|On|So|The|With)\b/gi;
+            const output = input
+                .trim()
+                .toLowerCase()
+                .replace(/\s+/g, " ")
+                .replace(/\b\W?[a-zA-Z]/g, letter => letter.toUpperCase())
+                .replace(filterWord, word => word.toLowerCase());
 
-      input = input.toLowerCase();
-      input = input.replace(/\s+/g, " ");
-      input = input.replace(/\b\W?[a-zA-Z]/g, (letter) => letter.toUpperCase());
-      input = input.replace(filterWord, (word) => word.toLowerCase());
-
-      return input;
-    }
-  };
+            return output;
+        },
+    };
 };
