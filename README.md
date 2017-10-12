@@ -1,7 +1,7 @@
 # Kernel
-A JavaScript library for handling user input on a Node.js server.
+A tiny JavaScript utility library.
 
-**Author**: [Emmanuel Chucks](https://www.instagram.com/emmanuelchucks)
+**Author**: [Emmanuel Chucks](https://emmanuelchucks.github.io)
 
 ## Modules
 * [capitalize.js](https://github.com/emmanuelchucks/kernel/blob/master/modules/capitalize.js) - For applying capitalization to names and headers. 
